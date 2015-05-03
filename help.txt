@@ -1,0 +1,28 @@
+Help
+
+Starting the server
+-------------------
+
+In a command prompt, type:
+
+node server
+
+(how to stop the server is ctrl+c)
+Order page
+----------
+
+When the server is running, open a browser and go to:
+
+http://localhost:3000/static/index.html
+
+To order a pizza, click the ORDER NOW button.  It will submit an order encoded as XML to the server, "MEOWMIX".
+
+
+View orders page
+----------------
+
+Go to:
+
+http://localhost:3000/orders
+
+It will list out all the orders, one "MEOWMIX" per order. 
