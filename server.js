@@ -9,20 +9,27 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(xmlparser());
 
-/*app.get('/', function (req, res) {
-  res.send('Hello World!'+ ++encounter)
-})*/
+app.get('/', function (req, res) {
+  res.redirect('/static');
+})
 app.get('/meow', function (req, res)
 {
 	res.send("mix")
 });
 
 app.get('/orders', function (req, res) {
-	var orderHtml = '';
+	var tableBody = '';
 	for (var i = 0; i < pizzaorders.length; i++) {
 		var pizzaorder = pizzaorders[i];
-		orderHtml += pizzaorder;
+		tableBody += '<tr>';
+		tableBody += '<td>' + pizzaorder.size + '</td>';
+		tableBody += '<td>' + pizzaorder.crusttype + '</td>';
+		tableBody += '<td>' + pizzaorder.cheese + '</td>';
+		tableBody += '<td>' + pizzaorder.topping.join(', ')  + '</td>';
+		console.log(JSON.stringify(pizzaorder.topping));
+		tableBody += '</tr>';
 	}
+	var orderHtml = '<table border = "1"><thead><tr><th>Size</th><th>Crust Type</th><th>Cheese</th><th>Toppings</th></tr></thead><tbody>' + tableBody + '</tbody></table>';
 	res.send('<html><head><title>Orders</title></head><body><h1>Orders</h1>' + orderHtml + '</body></html>')
 });
 

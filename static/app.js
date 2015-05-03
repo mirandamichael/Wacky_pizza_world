@@ -19,23 +19,23 @@ function getSelectedRadioValue(radioName) {
 	
 	}
 	
-	function submitOrder(){
+	function submitOrder(e){
 		// this will alert the size that the user selected
 		var sizeSelected = document.getElementById('size').value;
 		var crustSelected = document.getElementById('crustType').value;
-		var cheeseSelected = getSelectedRadioValue('cheese');
+		var cheeseSelected = document.getElementById('cheese').value;
 		var toppingsSelected = getSelectedCheckboxes('toppings');
 		
 		//var cheeseSelected = document.getElementById('cheese').value;
-		alert('Size selected is : ' + sizeSelected);
-		alert('Crusty the clown selected is : ' + crustSelected);
-		alert('Cheese selected is : ' + cheeseSelected);
+		//alert('Size selected is : ' + sizeSelected);
+		//alert('Crusty the clown selected is : ' + crustSelected);
+		//alert('Cheese selected is : ' + cheeseSelected);
 		
 		var xml = "<PizzaOrder>";
 		xml += "<size>" + sizeSelected + "</size>";
 		xml += "<crustType>" + crustSelected + "</crustType>";
 		xml += "<cheese>" + cheeseSelected + "</cheese>";
-		xml += "<toppings><topping>" + toppingsSelected.join('</topping><topping>') + "</topping></toppings>";
+		xml += "<topping>" + toppingsSelected.join('</topping><topping>') + "</topping>";
 		xml += "</PizzaOrder>";
 		
 		
@@ -52,11 +52,12 @@ function getSelectedRadioValue(radioName) {
 			contentType: "text/xml",//content type tells server it is xml
 			dataType: "text",
 			success : function(data){//data is the server response data
-				alert('done'+ data);//'you sent me ''MEOWMIX''
+				alert('WACKY PIZZA ORDER SUBMITTED!');
 			},
 			error : function (xhr, ajaxOptions, thrownError){  
 				console.log(xhr.status);          
 				console.log(thrownError);
+				alert('ORDER FAILED TRY AGAIN');
 			} 
 		});
 	}

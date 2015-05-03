@@ -1,41 +1,103 @@
 <html><!-- client side -->
 <head>
 <title> WackyPizzaWorld2 </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body>
-<label for="size">Please select crust size</label>
-<select name="size" id="size">
-<option>Small</option>
-<option>Medium</option>
-<option>GIANT</option>
-</select>
-<label for="crustType">Please select crust type</label> 
-<select name="crustType" id="crustType">
-<option>Original</option>
-<option>Thin-Crust</option>
-<option>Deep-Dish</option>
-</select>
-<label>
-<input type="checkbox" value="Pepperoni" name="toppings"/>
-Pepperoni
-</label>
-<label>
-<input type="checkbox" value="Walker-Meat" name="toppings"/>
-Walker-Meat
-</label>
-<label>
-<input type="radio" name="cheese" value="None"/>
-No Cheese
-</label>
-<label>
-<input type="radio" name="cheese" value="Cheddar"/>
-Cheddar
-</label>
-<label>
-<input type="radio" name="cheese" value="Parmesan"/>
-Parmesan
-</label>
-<button onclick="submitOrder()">ORDER MEOW!!!</button>
+
+
+<div class="container">
+<h1>Welcome to Wacky Pizza World!</h1>
+<p>Customize your pizza below!</p>
+	<div class="row">
+		<div class="col-xs-6">
+		<form>
+		  <div class="form-group">
+			<label for="size">Please select crust size</label>
+			<select name="size" id="size" class="form-control">
+				<option>Small</option>
+				<option>Medium</option>
+				<option>GIANT</option>
+			</select>
+		  </div>
+		  <div class="form-group">
+			<label for="crustType">Please select crust type</label> 
+			<select name="crustType" id="crustType" class="form-control">
+				<option>Original</option>
+				<option>Thin-Crust</option>
+				<option>Deep-Dish</option>
+			</select>
+		  </div>
+		  <label>Please Select your Wacky Toppings</label>
+		<div class="checkbox">
+			<label>
+			<input type="checkbox" value="Pepperoni" name="toppings"/>
+			Pepperoni
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+			<input type="checkbox" value="Sausage" name="toppings"/>
+			Sausage
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+			<input type="checkbox" value="Mushrooms" name="toppings"/>
+			Mushrooms
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+			<input type="checkbox" value="Green Onions" name="toppings"/>
+			Green Onions
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+			<input type="checkbox" value="Red Onions" name="toppings"/>
+			Red Onions
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+			<input type="checkbox" value="Pinneapple" name="toppings"/>
+			Pineapple
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+			<input type="checkbox" value="American Bacon" name="toppings"/>
+			American Bacon
+			</label>
+		</div>
+		<div class="checkbox">
+			<label>
+			<input type="checkbox" value="BACON" name="toppings"/>
+			BACON
+			</label>
+		</div>
+		<div class="checkbox">
+		<label>
+			<input type="checkbox" value="Walker-Meat" name="toppings"/>
+			Walker-Meat
+		</label>
+		</div>
+		<div class="form-group">
+			<label for="cheese">Select Cheese </label>
+			<select name="cheese" id="cheese" class="form-control">
+				<option>No Cheese</option>
+				<option>Parmesan</option>
+				<option>Cheddar</option>
+				<option>Parmesan and Cheddar</option>
+			</select>
+		  </div>
+		</form>
+		<button onclick="submitOrder()" class="btn btn-default">Submit Wacky Pizza Order NOW!</button>
+		</div>
+	</div>	
+</div>
+
 
 <script src ="app.js"></script>
 <script src="jquery-1.11.2.min.js"></script>
