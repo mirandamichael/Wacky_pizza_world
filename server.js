@@ -15,7 +15,7 @@ app.use(xmlparser());
 app.get('/meow', function (req, res)
 {
 	res.send("mix")
-})
+});
 
 app.get('/orders', function (req, res) {
 	var orderHtml = '';
@@ -24,13 +24,13 @@ app.get('/orders', function (req, res) {
 		orderHtml += pizzaorder;
 	}
 	res.send('<html><head><title>Orders</title></head><body><h1>Orders</h1>' + orderHtml + '</body></html>')
-})
+});
 
 app.post('/order', function (req, res) {//makes the server listen for requests for the url /order
   	
   res.send('you sent me: ' + req.body.pizzaorder);
   pizzaorders.push(req.body.pizzaorder)
-})
+});
 
 app.use('/static', express.static(__dirname + '/static'));
 

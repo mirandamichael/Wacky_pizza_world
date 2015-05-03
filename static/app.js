@@ -35,13 +35,14 @@ function getSelectedRadioValue(radioName) {
 		xml += "<size>" + sizeSelected + "</size>";
 		xml += "<crustType>" + crustSelected + "</crustType>";
 		xml += "<cheese>" + cheeseSelected + "</cheese>";
-		xml += "<toppings><topping>" + toppingsSelected.join('</topping></topping>') + "</topping></toppings>";
-		xml += "<PizzaOrder>";
+		xml += "<toppings><topping>" + toppingsSelected.join('</topping><topping>') + "</topping></toppings>";
+		xml += "</PizzaOrder>";
 		
 		
 		//var xml = "<PizzaOrder><size>" + sizeSelected + "</size><crustType>" + crustSelected + "</crustType></PizzaOrder>";
-		alert('sending: ' + xml);
-		alert('Your undead pizza toppings are : ' + toppingsSelected);
+		//alert('sending: ' + xml);
+		//alert('Your undead pizza toppings are : ' + toppingsSelected);
+		console.log(xml);
 		
 		// this will send the pizza order to the server.
 		$.ajax({
