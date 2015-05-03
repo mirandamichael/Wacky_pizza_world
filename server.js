@@ -5,6 +5,8 @@ var path = require('path');
 var xmlparser = require('express-xml-bodyparser');
 var pizzaorders = [];
 
+app.set('port', (process.env.PORT || 5000));
+
 app.use(xmlparser());
 
 /*app.get('/', function (req, res) {
@@ -31,8 +33,8 @@ app.post('/order', function (req, res) {//makes the server listen for requests f
 })
 
 app.use('/static', express.static(__dirname + '/static'));
-/*line 31 constructs server, that listens on port 3000*/
-var server = app.listen(3000, function () {
+
+var server = app.listen(app.get('port'), function () {
 
   var host = server.address().address
   var port = server.address().port
