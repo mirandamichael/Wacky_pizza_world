@@ -1,12 +1,4 @@
-function getSelectedRadioValue(radioName) {
-	   var radios = document.getElementsByName(radioName);
-	   for (var i = 0; i < radios.length; i++) {
-		   if (radios[i].checked) {
-			   return radios[i].value;
-		   } 
-	   } 
-	   return null;
-	}
+	//Returns selected checkbox(es) values by checkboxName argument
 	function getSelectedCheckboxes(checkboxNames){
 		var result = [];
 		var checkboxes = document.getElementsByName(checkboxNames);
@@ -16,47 +8,30 @@ function getSelectedRadioValue(radioName) {
 			}
 		}
 		return result;
-	
 	}
-	
-	function submitOrder(e){
-		// this will alert the size that the user selected
+	//Function encodes selected choices as XML and sends to server.
+	function submitOrder(){
 		var sizeSelected = document.getElementById('size').value;
 		var crustSelected = document.getElementById('crustType').value;
 		var cheeseSelected = document.getElementById('cheese').value;
 		var toppingsSelected = getSelectedCheckboxes('toppings');
-		
-		//var cheeseSelected = document.getElementById('cheese').value;
-		//alert('Size selected is : ' + sizeSelected);
-		//alert('Crusty the clown selected is : ' + crustSelected);
-		//alert('Cheese selected is : ' + cheeseSelected);
-		
 		var xml = "<PizzaOrder>";
 		xml += "<size>" + sizeSelected + "</size>";
 		xml += "<crustType>" + crustSelected + "</crustType>";
 		xml += "<cheese>" + cheeseSelected + "</cheese>";
 		xml += "<topping>" + toppingsSelected.join('</topping><topping>') + "</topping>";
 		xml += "</PizzaOrder>";
-		
-		
-		//var xml = "<PizzaOrder><size>" + sizeSelected + "</size><crustType>" + crustSelected + "</crustType></PizzaOrder>";
-		//alert('sending: ' + xml);
-		//alert('Your undead pizza toppings are : ' + toppingsSelected);
-		console.log(xml);
-		
 		// this will send the pizza order to the server.
 		$.ajax({
 			url: "/order",
-			data: xml, //data sending to server 'MEOWMIX'
+			data: xml,
 			type: 'POST',//post is sending data to server
 			contentType: "text/xml",//content type tells server it is xml
 			dataType: "text",
-			success : function(data){//data is the server response data
+			success : function(){//data is the server response data
 				alert('WACKY PIZZA ORDER SUBMITTED!');
 			},
-			error : function (xhr, ajaxOptions, thrownError){  
-				console.log(xhr.status);          
-				console.log(thrownError);
+			error : function (){  
 				alert('ORDER FAILED TRY AGAIN');
 			} 
 		});

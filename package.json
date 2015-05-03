@@ -1,7 +1,7 @@
 {
   "name": "name",
   "version": "1.0.0",
-  "description": "WackyPizzaWorld2",
+  "description": "WackyPizzaWorld",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.12.0",
